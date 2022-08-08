@@ -1,13 +1,13 @@
 using Godot;
 using System;
 
-public class Melle : PlayerState{
+public class Push : PlayerState{
 	public override void On(){
-		GD.Print("Melle On");
+		GD.Print("Push On");
 	}
 	
 	public override void Off(){
-		GD.Print("Melle Off");
+		GD.Print("Push Off");
 	}
 
 	public override void Update(){
