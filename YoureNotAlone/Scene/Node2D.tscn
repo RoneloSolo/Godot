@@ -1,0 +1,141 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
+[ext_resource path="res://Sprite/Player.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Other.cs" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 54.52
+height = 37.81
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 54.52
+height = 46.71
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 142.48
+
+[node name="Game" type="Node2D"]
+
+[node name="You" type="KinematicBody2D" parent="."]
+z_index = 10
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="You"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="You"]
+texture = ExtResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
+
+[node name="Other" type="KinematicBody2D" parent="."]
+position = Vector2( 602, 168 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Other"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other"]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Other"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other/Area2D"]
+shape = SubResource( 3 )
+
+[node name="Other2" type="KinematicBody2D" parent="."]
+position = Vector2( -298, 330 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Other2"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other2"]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Other2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other2/Area2D"]
+shape = SubResource( 3 )
+
+[node name="Other3" type="KinematicBody2D" parent="."]
+position = Vector2( -591, -38 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Other3"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other3"]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Other3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other3/Area2D"]
+shape = SubResource( 3 )
+
+[node name="Other4" type="KinematicBody2D" parent="."]
+position = Vector2( 113, 383 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Other4"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other4"]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Other4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other4/Area2D"]
+shape = SubResource( 3 )
+
+[node name="Other5" type="KinematicBody2D" parent="."]
+position = Vector2( 534, -297 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Other5"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other5"]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Other5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other5/Area2D"]
+shape = SubResource( 3 )
+
+[node name="Other6" type="KinematicBody2D" parent="."]
+position = Vector2( 209, -382 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Other6"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other6"]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="Other6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Other6/Area2D"]
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="Other/Area2D" to="Other" method="OnAreaEnter"]
+[connection signal="body_entered" from="Other2/Area2D" to="Other2" method="OnAreaEnter"]
+[connection signal="body_entered" from="Other3/Area2D" to="Other3" method="OnAreaEnter"]
+[connection signal="body_entered" from="Other4/Area2D" to="Other4" method="OnAreaEnter"]
+[connection signal="body_entered" from="Other5/Area2D" to="Other5" method="OnAreaEnter"]
+[connection signal="body_entered" from="Other6/Area2D" to="Other6" method="OnAreaEnter"]
