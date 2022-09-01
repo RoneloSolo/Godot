@@ -1,0 +1,149 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprite/ak.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/Bazoka.cs" type="Script" id=3]
+[ext_resource path="res://Sprite/Shotgun.png" type="Texture" id=4]
+[ext_resource path="res://Sprite/character.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Ak.cs" type="Script" id=6]
+[ext_resource path="res://Scripts/Shotgun.cs" type="Script" id=7]
+[ext_resource path="res://Sprite/Bazoka.png" type="Texture" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.16228
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("SpriteHolder:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("SpriteHolder:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.2, 0.0978082, 1.25, -0.3, -0.0784693, 0.2, -0.0433632, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SpriteHolder:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("SpriteHolder:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("SpriteHolder:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("SpriteHolder:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Walk"
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("SpriteHolder:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -15, -0.25, 0, 0.25, 0, 15, -0.25, 0, 0.25, 0, -15, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1 )
+}
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 0, 4 )
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2( 0, -4 )
+
+[node name="Bazoka" type="Sprite" parent="Hand"]
+visible = false
+position = Vector2( 10, 0 )
+texture = ExtResource( 8 )
+script = ExtResource( 3 )
+fireRate = 1.0
+
+[node name="Point" type="Node2D" parent="Hand/Bazoka"]
+position = Vector2( 7, 0 )
+
+[node name="Ak" type="Sprite" parent="Hand"]
+visible = false
+position = Vector2( 10, 0 )
+texture = ExtResource( 1 )
+script = ExtResource( 6 )
+fireRate = 0.25
+
+[node name="Point" type="Node2D" parent="Hand/Ak"]
+position = Vector2( 7, -1 )
+
+[node name="Shotgun" type="Sprite" parent="Hand"]
+visible = false
+position = Vector2( 10, 0 )
+texture = ExtResource( 4 )
+script = ExtResource( 7 )
+fireRate = 0.5
+
+[node name="Point" type="Node2D" parent="Hand/Shotgun"]
+position = Vector2( 8, -1 )
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+anims/Walk = SubResource( 4 )
+
+[node name="SpriteHolder" type="Node2D" parent="."]
+position = Vector2( 0, 3 )
+
+[node name="Sprite" type="Sprite" parent="SpriteHolder"]
+position = Vector2( 0, -8 )
+z_index = 10
+texture = ExtResource( 5 )

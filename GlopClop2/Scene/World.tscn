@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Prefab/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprite/Background.png" type="Texture" id=9]
+[ext_resource path="res://Sprite/Boss_Stage_One.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/StageOne.cs" type="Script" id=11]
+[ext_resource path="res://Scripts/Boss.cs" type="Script" id=12]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.1327
+
+[node name="Main" type="Node2D"]
+
+[node name="GamePlay" type="Node" parent="."]
+
+[node name="Player" parent="GamePlay" instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="GamePlay"]
+current = true
+zoom = Vector2( 0.25, 0.25 )
+
+[node name="Background" type="Sprite" parent="GamePlay"]
+scale = Vector2( 2, 2 )
+z_index = -100
+texture = ExtResource( 9 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 250, 200 )
+
+[node name="Boss" type="Node2D" parent="GamePlay"]
+position = Vector2( 3, -50 )
+script = ExtResource( 12 )
+
+[node name="Stage One" type="KinematicBody2D" parent="GamePlay/Boss"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlay/Boss/Stage One"]
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="GamePlay/Boss/Stage One"]
+texture = ExtResource( 10 )
