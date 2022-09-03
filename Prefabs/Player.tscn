@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Player.cs" type="Script" id=1]
+[ext_resource path="res://Sprite/512/14.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleMesh" id=6]
+radius = 0.5
+mid_height = 1.25
+
+[sub_resource type="CapsuleShape" id=7]
+radius = 0.5
+height = 1.25
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868828, 0 )
+
+[node name="Cam" type="Camera" parent="Head"]
+current = true
+
+[node name="Crosshair" type="Sprite" parent="Head/Cam"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 512 )
+
+[node name="RayCast" type="RayCast" parent="Head/Cam"]
+enabled = true
+cast_to = Vector3( 0, 0, -25 )
+
+[node name="Hand" type="Spatial" parent="Head"]
+
+[node name="HandHor" type="Spatial" parent="Head/Hand"]
+
+[node name="HandVer" type="Spatial" parent="Head/Hand/HandHor"]
+
+[node name="CSGBox" type="CSGBox" parent="Head/Hand/HandHor/HandVer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.489, -0.655 )
+width = 0.276055
+height = 0.304149
+depth = 1.3322
+
+[node name="CSGBox2" type="CSGBox" parent="Head/Hand/HandHor/HandVer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.492, -0.652 )
+width = 0.276055
+height = 0.304149
+depth = 1.3322
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 7 )
