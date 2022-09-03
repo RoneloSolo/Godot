@@ -1,0 +1,121 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Material/World/gridbox-prototype-materials-main/prototype_512x512_blue1.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/EnemyBase.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/PlayerNew.cs" type="Script" id=4]
+[ext_resource path="res://Material/YelliowMat.tres" type="Material" id=5]
+[ext_resource path="res://Material/BlueMat.tres" type="Material" id=6]
+[ext_resource path="res://Material/WhiteMat.tres" type="Material" id=7]
+[ext_resource path="res://Material/Box1Mat.tres" type="Material" id=8]
+[ext_resource path="res://Material/Box2Mat.tres" type="Material" id=9]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 50, -5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( -50, 5, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( -50, 5, 0.5 )
+
+[sub_resource type="SphereMesh" id=8]
+
+[sub_resource type="ConvexPolygonShape" id=9]
+points = PoolVector3Array( 0.980344, 0.183469, 0.0315765, -0.977477, -0.183355, -0.0904639, -0.942976, -0.274012, -0.181475, 0.152638, -0.666639, 0.728356, -0.211037, 0.78831, 0.576929, 0.184627, -0.0915623, -0.976969, -0.180659, 0.817713, -0.543999, 0.243737, -0.909689, -0.332273, -0.121109, 0.152902, 0.979443, -0.542369, -0.724769, 0.423657, 0.604588, 0.724305, -0.330643, 0.634171, 0.391896, 0.664077, -0.879055, 0.30349, 0.365178, -0.542663, -0.422869, -0.723919, 0.852268, -0.51673, 0.0618464, -0.724288, 0.332336, -0.603236, 0.760092, -0.121365, -0.636416, 0.638071, -0.242667, 0.728959, -0.394561, 0.913095, -0.090039, 0.365549, 0.911196, 0.18319, -0.394563, -0.913101, -0.0900396, -0.604357, -0.242246, 0.757853, 0.213378, 0.424522, -0.878365, 0.274246, -0.910695, 0.304605, 0.152873, -0.667673, -0.727284, -0.332904, 0.24293, -0.909566, -0.81657, 0.545227, -0.18048, -0.66277, 0.513033, 0.544283, 0.604588, -0.724305, -0.330643, 0.243867, 0.637198, 0.72921, 0.72941, 0.637067, 0.243636, 0.154338, -0.0917767, 0.981459, 0.725418, 0.331819, -0.602295, -0.878399, -0.424493, 0.213305, 0.183583, 0.911941, -0.363567, -0.421858, -0.785457, -0.451916, 0.914484, 0.0608556, 0.39687, -0.210819, -0.423921, 0.879321, 0.726184, -0.513491, 0.454125, -0.727607, -0.667903, -0.150675, -0.120499, -0.943345, 0.305321, -0.181559, -0.365207, -0.911834, 0.91196, -0.182062, -0.363143, -0.515036, 0.242882, 0.820499, 0.544268, -0.42236, -0.723047, -0.604368, 0.756914, 0.243303, -0.121291, 0.980187, 0.1542, -0.635139, -0.151483, -0.756166, -0.943463, 0.121804, -0.30354, 0.367302, 0.152596, 0.916499, -0.51232, 0.664268, -0.542354, -0.879829, -0.121426, 0.456646, 0.518226, -0.851837, 0.0618928, 0.879357, 0.423865, -0.210791, 0.516935, 0.0908844, -0.848445, -0.241747, 0.516022, 0.820527, 0.272964, 0.694959, -0.663439, 0.0928529, -0.978183, -0.18213, -0.330847, -0.724301, 0.604471, 0.304022, 0.81782, 0.485737, -0.180675, 0.545253, -0.816525, 0.979185, -0.152614, 0.123244, -0.150676, -0.728822, -0.666713, -0.977374, 0.183336, 0.0926544 )
+
+[sub_resource type="CapsuleMesh" id=6]
+radius = 0.5
+mid_height = 1.25
+
+[sub_resource type="CapsuleShape" id=7]
+radius = 0.5
+height = 1.25
+
+[node name="Main" type="Spatial"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.27996, 0 )
+script = ExtResource( 4 )
+
+[node name="TestRoom" type="Spatial" parent="."]
+
+[node name="CSGSphere" type="CSGSphere" parent="TestRoom"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 3.02649, -13 )
+use_collision = true
+material = ExtResource( 6 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="TestRoom"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 3.02649, -7 )
+use_collision = true
+material = ExtResource( 5 )
+
+[node name="CSGSphere3" type="CSGSphere" parent="TestRoom"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 15, 3.02649, -1 )
+use_collision = true
+material = ExtResource( 7 )
+
+[node name="CSGBox" type="CSGBox" parent="TestRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+use_collision = true
+width = 50.0
+depth = 50.0
+material = ExtResource( 9 )
+
+[node name="CSGBox2" type="CSGBox" parent="TestRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 25.25 )
+use_collision = true
+width = 50.0
+height = 5.0
+depth = 0.5
+material = SubResource( 2 )
+
+[node name="CSGBox3" type="CSGBox" parent="TestRoom"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.094841, 2.5, -25.2627 )
+use_collision = true
+width = 50.0
+height = 5.0
+depth = 0.5
+material = SubResource( 3 )
+
+[node name="CSGBox4" type="CSGBox" parent="TestRoom"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25.25, 2.5, -1.10371e-06 )
+use_collision = true
+width = 50.0
+height = 5.0
+depth = 0.5
+material = ExtResource( 8 )
+
+[node name="CSGBox5" type="CSGBox" parent="TestRoom"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25.25, 2.5, 1.10371e-06 )
+use_collision = true
+width = 50.0
+height = 5.0
+depth = 0.5
+material = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="TestRoom"]
+
+[node name="MeshInstance" type="MeshInstance" parent="TestRoom/StaticBody"]
+mesh = SubResource( 8 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="TestRoom/StaticBody"]
+shape = SubResource( 9 )
+
+[node name="Dummy" type="KinematicBody" parent="."]
+transform = Transform( -0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 0, 1, -12.9645 )
+script = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Dummy"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="Dummy"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 7 )
