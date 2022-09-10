@@ -1,9 +1,100 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Prefab/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefab/EnemyTierA.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=3]
+[ext_resource path="res://Material/Flash.gdshader" type="Shader" id=4]
 [ext_resource path="res://Sprite/Background.png" type="Texture" id=9]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=9]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=12]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=13]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
+
+[sub_resource type="ShaderMaterial" id=15]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/flashColor = Color( 1, 1, 1, 1 )
+shader_param/flashModifier = 0.0
 
 [node name="Main" type="Node2D"]
 
@@ -24,46 +115,234 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 250, 200 )
 
 [node name="Enemy" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 1 )
 position = Vector2( -133, -108 )
 
 [node name="Enemy2" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 2 )
 position = Vector2( -60, -106 )
 
 [node name="Enemy3" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 3 )
 position = Vector2( -97, -87 )
 
 [node name="Enemy4" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 4 )
 position = Vector2( -98, -113 )
 
 [node name="Enemy5" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 5 )
 position = Vector2( -126, -82 )
 
 [node name="Enemy6" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 6 )
 position = Vector2( -146, -71 )
 
 [node name="Enemy7" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 7 )
 position = Vector2( -156, -92 )
 
 [node name="Enemy8" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 8 )
 position = Vector2( -188, -74 )
 
 [node name="Enemy9" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 9 )
 position = Vector2( -183, -50 )
 
 [node name="Enemy10" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 10 )
 position = Vector2( -167, -58 )
 
 [node name="Enemy11" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 11 )
 position = Vector2( -175, -79 )
 
 [node name="Enemy12" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 12 )
 position = Vector2( -177, -101 )
 
 [node name="Enemy13" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 13 )
 position = Vector2( -192, -93 )
 
 [node name="Enemy14" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 14 )
 position = Vector2( -211, -85 )
+
+[node name="Enemy16" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 1 )
+position = Vector2( 64, -138 )
+
+[node name="Enemy17" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 2 )
+position = Vector2( 137, -136 )
+
+[node name="Enemy18" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 3 )
+position = Vector2( 100, -117 )
+
+[node name="Enemy19" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 4 )
+position = Vector2( 99, -143 )
+
+[node name="Enemy20" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 5 )
+position = Vector2( 71, -112 )
+
+[node name="Enemy21" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 6 )
+position = Vector2( 51, -101 )
+
+[node name="Enemy22" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 7 )
+position = Vector2( 41, -122 )
+
+[node name="Enemy23" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 8 )
+position = Vector2( 9, -104 )
+
+[node name="Enemy24" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 9 )
+position = Vector2( 14, -80 )
+
+[node name="Enemy25" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 10 )
+position = Vector2( 30, -88 )
+
+[node name="Enemy26" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 11 )
+position = Vector2( 22, -109 )
+
+[node name="Enemy27" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 12 )
+position = Vector2( 20, -131 )
+
+[node name="Enemy28" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 13 )
+position = Vector2( 5, -123 )
+
+[node name="Enemy29" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 14 )
+position = Vector2( -14, -115 )
+
+[node name="Enemy30" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 1 )
+position = Vector2( 176, -92 )
+
+[node name="Enemy31" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 2 )
+position = Vector2( 249, -90 )
+
+[node name="Enemy32" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 3 )
+position = Vector2( 212, -71 )
+
+[node name="Enemy33" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 4 )
+position = Vector2( 211, -97 )
+
+[node name="Enemy34" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 5 )
+position = Vector2( 183, -66 )
+
+[node name="Enemy35" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 6 )
+position = Vector2( 163, -55 )
+
+[node name="Enemy36" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 7 )
+position = Vector2( 153, -76 )
+
+[node name="Enemy37" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 8 )
+position = Vector2( 121, -58 )
+
+[node name="Enemy38" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 9 )
+position = Vector2( 126, -34 )
+
+[node name="Enemy39" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 10 )
+position = Vector2( 142, -42 )
+
+[node name="Enemy40" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 11 )
+position = Vector2( 134, -63 )
+
+[node name="Enemy41" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 12 )
+position = Vector2( 132, -85 )
+
+[node name="Enemy42" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 13 )
+position = Vector2( 117, -77 )
+
+[node name="Enemy43" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 14 )
+position = Vector2( 98, -69 )
+
+[node name="Enemy44" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 1 )
+position = Vector2( 214, -3 )
+
+[node name="Enemy45" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 2 )
+position = Vector2( 287, -1 )
+
+[node name="Enemy46" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 3 )
+position = Vector2( 250, 18 )
+
+[node name="Enemy47" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 4 )
+position = Vector2( 249, -8 )
+
+[node name="Enemy48" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 5 )
+position = Vector2( 221, 23 )
+
+[node name="Enemy49" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 6 )
+position = Vector2( 201, 34 )
+
+[node name="Enemy50" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 7 )
+position = Vector2( 191, 13 )
+
+[node name="Enemy51" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 8 )
+position = Vector2( 159, 31 )
+
+[node name="Enemy52" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 9 )
+position = Vector2( 164, 55 )
+
+[node name="Enemy53" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 10 )
+position = Vector2( 180, 47 )
+
+[node name="Enemy54" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 11 )
+position = Vector2( 172, 26 )
+
+[node name="Enemy55" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 12 )
+position = Vector2( 170, 4 )
+
+[node name="Enemy56" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 13 )
+position = Vector2( 155, 12 )
+
+[node name="Enemy57" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 14 )
+position = Vector2( 136, 20 )
+
+[node name="Enemy15" parent="GamePlay" instance=ExtResource( 2 )]
+material = SubResource( 15 )
+position = Vector2( -220, -2 )
+health = 300
+knockbackThrust = 100.0
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource( 3 )

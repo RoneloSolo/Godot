@@ -497,7 +497,7 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Hand" type="Node2D" parent="."]
+[node name="Hand" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
 
 [node name="Bazoka" type="Sprite" parent="Hand"]
@@ -508,12 +508,12 @@ script = ExtResource( 3 )
 fireRate = 2.0
 
 [node name="Ak" type="Sprite" parent="Hand"]
+visible = false
 position = Vector2( 7, 4 )
 z_index = 11
 texture = ExtResource( 1 )
 script = ExtResource( 6 )
 fireRate = 0.25
-bulletSpeed = 250.0
 
 [node name="Shotgun" type="Sprite" parent="Hand"]
 visible = false
@@ -533,15 +533,15 @@ anims/Shot_Ak = SubResource( 10 )
 anims/Shot_Bazoka = SubResource( 11 )
 anims/Shot_Shotgun = SubResource( 12 )
 
-[node name="Point_Ak" type="Node2D" parent="Hand"]
+[node name="Point_Ak" type="Position2D" parent="Hand"]
 position = Vector2( 13.6867, 1.49689 )
 rotation = -0.0180185
 scale = Vector2( 1, 1.07901 )
 
-[node name="Point_Shotgun" type="Node2D" parent="Hand"]
+[node name="Point_Shotgun" type="Position2D" parent="Hand"]
 position = Vector2( 12, 1 )
 
-[node name="Point_Bazoka" type="Node2D" parent="Hand"]
+[node name="Point_Bazoka" type="Position2D" parent="Hand"]
 position = Vector2( 13, -3 )
 
 [node name="Anim" type="AnimationPlayer" parent="."]
@@ -550,7 +550,7 @@ anims/RESET = SubResource( 3 )
 anims/Roll = SubResource( 5 )
 anims/Walk = SubResource( 4 )
 
-[node name="SpriteHolder" type="Node2D" parent="."]
+[node name="SpriteHolder" type="Position2D" parent="."]
 position = Vector2( 0, 3 )
 
 [node name="Sprite" type="Sprite" parent="SpriteHolder"]
