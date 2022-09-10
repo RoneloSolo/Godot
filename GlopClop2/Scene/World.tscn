@@ -1,23 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Prefab/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefab/EnemyTierA.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/GameManager.cs" type="Script" id=3]
 [ext_resource path="res://Sprite/Background.png" type="Texture" id=9]
-[ext_resource path="res://Sprite/Boss_Stage_One.png" type="Texture" id=10]
-[ext_resource path="res://Scripts/StageOne.cs" type="Script" id=11]
-[ext_resource path="res://Scripts/Boss.cs" type="Script" id=12]
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 15.1327
 
 [node name="Main" type="Node2D"]
 
 [node name="GamePlay" type="Node" parent="."]
 
 [node name="Player" parent="GamePlay" instance=ExtResource( 1 )]
+position = Vector2( 3.349, 4 )
 
-[node name="Camera2D" type="Camera2D" parent="GamePlay"]
+[node name="Cam" type="Camera2D" parent="GamePlay"]
 current = true
-zoom = Vector2( 0.25, 0.25 )
+zoom = Vector2( 0.5, 0.5 )
 
 [node name="Background" type="Sprite" parent="GamePlay"]
 scale = Vector2( 2, 2 )
@@ -26,17 +23,47 @@ texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 250, 200 )
 
-[node name="Boss" type="Node2D" parent="GamePlay"]
-position = Vector2( 3, -50 )
-script = ExtResource( 12 )
+[node name="Enemy" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -133, -108 )
 
-[node name="Stage One" type="KinematicBody2D" parent="GamePlay/Boss"]
-collision_layer = 2
-collision_mask = 4
-script = ExtResource( 11 )
+[node name="Enemy2" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -60, -106 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GamePlay/Boss/Stage One"]
-shape = SubResource( 2 )
+[node name="Enemy3" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -97, -87 )
 
-[node name="Sprite" type="Sprite" parent="GamePlay/Boss/Stage One"]
-texture = ExtResource( 10 )
+[node name="Enemy4" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -98, -113 )
+
+[node name="Enemy5" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -126, -82 )
+
+[node name="Enemy6" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -146, -71 )
+
+[node name="Enemy7" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -156, -92 )
+
+[node name="Enemy8" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -188, -74 )
+
+[node name="Enemy9" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -183, -50 )
+
+[node name="Enemy10" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -167, -58 )
+
+[node name="Enemy11" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -175, -79 )
+
+[node name="Enemy12" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -177, -101 )
+
+[node name="Enemy13" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -192, -93 )
+
+[node name="Enemy14" parent="GamePlay" instance=ExtResource( 2 )]
+position = Vector2( -211, -85 )
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource( 3 )

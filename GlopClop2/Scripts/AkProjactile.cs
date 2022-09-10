@@ -19,6 +19,7 @@ public class AkProjactile : KinematicBody2D{
 				collision.Collider.Call("Hit", 1);
 				Node2D _smoke = (Node2D)smoke.Instance();
 				_smoke.Position = Position;
+				_smoke.Rotation = Rotation;
 				GetTree().CurrentScene.AddChild(_smoke);
 				QueueFree();
 			}

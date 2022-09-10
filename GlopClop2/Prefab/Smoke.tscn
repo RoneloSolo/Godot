@@ -52,6 +52,7 @@ tracks/0/keys = {
 }
 
 [node name="Smoke" type="Sprite"]
+z_index = 20
 texture = ExtResource( 1 )
 script = ExtResource( 7 )
 

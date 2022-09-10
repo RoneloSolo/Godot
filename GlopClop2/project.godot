@@ -16,9 +16,12 @@ config/icon="res://Sprite/icon.png"
 
 [display]
 
+window/size/width=960
+window/size/height=540
 mouse_cursor/custom_image="res://Sprite/corsiar.png"
 mouse_cursor/custom_image_hotspot=Vector2( 22, 22 )
 window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [input]
 
