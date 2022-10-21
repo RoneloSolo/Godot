@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scr/BuildManager.cs" type="Script" id=1]
+[ext_resource path="res://Sprite/House 0.png" type="Texture" id=2]
+
+[node name="Main" type="Node2D"]
+
+[node name="Buildings" type="Node" parent="."]
+
+[node name="Building" type="Node2D" parent="Buildings"]
+
+[node name="Sprite" type="Sprite" parent="Buildings/Building"]
+texture = ExtResource( 2 )
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="Build manager" type="Node2D" parent="Managers"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -650.0
+margin_top = -428.0
+margin_right = 752.0
+margin_bottom = 390.0
+color = Color( 0, 0.666667, 0.32549, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
