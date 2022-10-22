@@ -1,29 +1,60 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scr/BuildManager.cs" type="Script" id=1]
-[ext_resource path="res://Sprite/House 0.png" type="Texture" id=2]
+[ext_resource path="res://Prefab/Plans/House0.tres" type="Resource" id=2]
+[ext_resource path="res://Scr/UiManager.cs" type="Script" id=3]
 
 [node name="Main" type="Node2D"]
 
 [node name="Buildings" type="Node" parent="."]
 
-[node name="Building" type="Node2D" parent="Buildings"]
-
-[node name="Sprite" type="Sprite" parent="Buildings/Building"]
-texture = ExtResource( 2 )
-
 [node name="Managers" type="Node" parent="."]
 
-[node name="Build manager" type="Node2D" parent="Managers"]
+[node name="Build Manager" type="Node2D" parent="Managers"]
 script = ExtResource( 1 )
+buildPlans = [ ExtResource( 2 ) ]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Ui Manager" type="Node2D" parent="Managers"]
+script = ExtResource( 3 )
+
+[node name="Ground" type="ColorRect" parent="."]
 margin_left = -650.0
 margin_top = -428.0
 margin_right = 752.0
 margin_bottom = 390.0
 color = Color( 0, 0.666667, 0.32549, 1 )
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( -451, -335 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Build UI" type="Node2D" parent="UI"]
+visible = false
+
+[node name="House 0" type="Button" parent="UI/Build UI"]
+margin_left = 21.0
+margin_top = 17.0
+margin_right = 71.0
+margin_bottom = 67.0
+
+[node name="Go Back" type="Button" parent="UI/Build UI"]
+margin_left = 942.0
+margin_top = 528.0
+margin_right = 992.0
+margin_bottom = 578.0
+
+[node name="Game UI" type="Node2D" parent="UI"]
+
+[node name="BuildTabButton" type="Button" parent="UI/Game UI"]
+margin_right = 50.0
+margin_bottom = 50.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="UI/Build UI/House 0" to="Managers/Build Manager" method="House0Button"]
+[connection signal="pressed" from="UI/Build UI/Go Back" to="Managers/Ui Manager" method="CloseBuildTab"]
+[connection signal="pressed" from="UI/Game UI/BuildTabButton" to="Managers/Ui Manager" method="OpenBuildTab"]
