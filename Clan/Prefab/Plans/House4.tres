@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Scr/BuildPlan.cs" type="Script" id=1]
+[ext_resource path="res://Prefab/Items/Stone.tres" type="Resource" id=2]
+[ext_resource path="res://Prefab/Items/Wood.tres" type="Resource" id=3]
+[ext_resource path="res://Prefab/Building/House4.tscn" type="PackedScene" id=4]
+
+[resource]
+script = ExtResource( 1 )
+prefab = ExtResource( 4 )
+costItem = [ ExtResource( 3 ), ExtResource( 2 ) ]
+costAmount = PoolIntArray( 5, 2 )

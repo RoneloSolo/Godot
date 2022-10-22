@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scr/BuildManager.cs" type="Script" id=1]
 [ext_resource path="res://Prefab/Plans/House0.tres" type="Resource" id=2]
 [ext_resource path="res://Scr/UiManager.cs" type="Script" id=3]
+[ext_resource path="res://Prefab/Plans/House1.tres" type="Resource" id=4]
+[ext_resource path="res://Prefab/Plans/House2.tres" type="Resource" id=5]
+[ext_resource path="res://Prefab/Plans/House3.tres" type="Resource" id=6]
+[ext_resource path="res://Prefab/Plans/House4.tres" type="Resource" id=7]
 
 [node name="Main" type="Node2D"]
 
@@ -12,7 +16,7 @@
 
 [node name="Build Manager" type="Node2D" parent="Managers"]
 script = ExtResource( 1 )
-buildPlans = [ ExtResource( 2 ) ]
+buildPlans = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]
 
 [node name="Ui Manager" type="Node2D" parent="Managers"]
 script = ExtResource( 3 )
@@ -32,13 +36,36 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Build UI" type="Node2D" parent="UI"]
-visible = false
 
 [node name="House 0" type="Button" parent="UI/Build UI"]
 margin_left = 21.0
 margin_top = 17.0
 margin_right = 71.0
 margin_bottom = 67.0
+
+[node name="House 1" type="Button" parent="UI/Build UI"]
+margin_left = 22.0
+margin_top = 73.0
+margin_right = 72.0
+margin_bottom = 123.0
+
+[node name="House 2" type="Button" parent="UI/Build UI"]
+margin_left = 24.0
+margin_top = 132.0
+margin_right = 74.0
+margin_bottom = 182.0
+
+[node name="House 3" type="Button" parent="UI/Build UI"]
+margin_left = 26.0
+margin_top = 191.0
+margin_right = 76.0
+margin_bottom = 241.0
+
+[node name="House 4" type="Button" parent="UI/Build UI"]
+margin_left = 28.0
+margin_top = 250.0
+margin_right = 78.0
+margin_bottom = 300.0
 
 [node name="Go Back" type="Button" parent="UI/Build UI"]
 margin_left = 942.0
@@ -47,6 +74,7 @@ margin_right = 992.0
 margin_bottom = 578.0
 
 [node name="Game UI" type="Node2D" parent="UI"]
+visible = false
 
 [node name="BuildTabButton" type="Button" parent="UI/Game UI"]
 margin_right = 50.0
@@ -55,6 +83,10 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="pressed" from="UI/Build UI/House 0" to="Managers/Build Manager" method="House0Button"]
+[connection signal="pressed" from="UI/Build UI/House 0" to="Managers/Build Manager" method="House0Button" binds= [ 0 ]]
+[connection signal="pressed" from="UI/Build UI/House 1" to="Managers/Build Manager" method="House0Button" binds= [ 1 ]]
+[connection signal="pressed" from="UI/Build UI/House 2" to="Managers/Build Manager" method="House0Button" binds= [ 2 ]]
+[connection signal="pressed" from="UI/Build UI/House 3" to="Managers/Build Manager" method="House0Button" binds= [ 3 ]]
+[connection signal="pressed" from="UI/Build UI/House 4" to="Managers/Build Manager" method="House0Button" binds= [ 4 ]]
 [connection signal="pressed" from="UI/Build UI/Go Back" to="Managers/Ui Manager" method="CloseBuildTab"]
 [connection signal="pressed" from="UI/Game UI/BuildTabButton" to="Managers/Ui Manager" method="OpenBuildTab"]
