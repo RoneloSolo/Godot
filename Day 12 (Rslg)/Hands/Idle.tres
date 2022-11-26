@@ -1,0 +1,11 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://HandIdle.png" type="Texture" id=1]
+
+[resource]
+flags_transparent = true
+flags_unshaded = true
+flags_no_depth_test = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_texture = ExtResource( 1 )
