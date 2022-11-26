@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Guns/Shotgun.cs" type="Script" id=1]
+[ext_resource path="res://Sprite/Player/Shotgun.png" type="Texture" id=2]
+
+[node name="Shotgun" type="Sprite"]
+visible = false
+position = Vector2( 4, 2 )
+z_index = 11
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+fireRate = 0.5
+
+[node name="Point_Shotgun" type="Position2D" parent="."]
+position = Vector2( 8, -1 )

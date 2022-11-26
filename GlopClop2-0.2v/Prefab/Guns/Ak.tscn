@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Guns/Ak.cs" type="Script" id=1]
+[ext_resource path="res://Sprite/Player/ak.png" type="Texture" id=2]
+
+[node name="Ak" type="Sprite"]
+visible = false
+position = Vector2( 2, 5 )
+rotation = 0.686529
+z_index = 11
+texture = ExtResource( 2 )
+script = ExtResource( 1 )
+fireRate = 0.25
+
+[node name="Point_Ak" type="Position2D" parent="."]
+position = Vector2( 6.81862, -10.1172 )
+rotation = -0.704548
+scale = Vector2( 1, 1.07901 )
