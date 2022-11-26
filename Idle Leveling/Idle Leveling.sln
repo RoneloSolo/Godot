@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Idle Leveling", "Idle Leveling.csproj", "{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{7AEE3F76-0E75-4226-B4FA-11F8CC0888AA}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

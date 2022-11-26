@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scr/FirstPersonController.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/Gun.tscn" type="PackedScene" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.75
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.5, 0.001, 0.5 )
+
+[node name="World" type="Spatial"]
+
+[node name="FpController" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="FpController"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="Head" type="Spatial" parent="FpController"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.720018, 0 )
+
+[node name="Hand" type="Spatial" parent="FpController/Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.809649, -0.589736, -2.58127 )
+
+[node name="HandHor" type="Spatial" parent="FpController/Head/Hand"]
+
+[node name="HandVer" type="Spatial" parent="FpController/Head/Hand/HandHor"]
+
+[node name="Gun and hand" parent="FpController/Head/Hand/HandHor/HandVer" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, -8.72665e-05, -1, 0, 1, -8.72665e-05, 1, -3.81454e-12, -4.37114e-08, 0, 0, 0 )
+
+[node name="Cam" type="Camera" parent="FpController/Head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.572736 )
+cull_mask = 1048573
+current = true
+fov = 90.0
+
+[node name="RayCast" type="RayCast" parent="FpController/Head/Cam"]
+
+[node name="Crosshair" type="Sprite" parent="FpController/Head/Cam"]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="FpController/Head/Cam"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Viewport" type="Viewport" parent="FpController/Head/Cam/ViewportContainer"]
+size = Vector2( 1920, 1080 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="GunCam" type="Camera" parent="FpController/Head/Cam/ViewportContainer/Viewport"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.71964, -0.565139 )
+cull_mask = 2
+fov = 60.0
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 25, 0, 0, 0, 1, 0, 0, 0, 25, 0, 0, 0 )
+width = 1.0
+height = 0.002
+depth = 1.0
+
+[node name="StaticBody" type="StaticBody" parent="CSGBox"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CSGBox/StaticBody"]
+shape = SubResource( 2 )
