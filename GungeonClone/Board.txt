@@ -1,0 +1,10 @@
+The Pawn Shop
+
+Ideas:
+	can get backpack put guns double gun diffrent guns for diffrent enmies.
+
+Main:
+	Have village floor where you can buy/sell and upgrade items.
+	Have Arena floor where you defet enemies and collect their essance to buy and upgrade items.
+	Have Shop floor where can buy spaciel guns.
+	Have Boss floor where every x amount of arena floor you get boss floor where fight boss for extra essance.
