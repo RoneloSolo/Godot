@@ -13,6 +13,8 @@ public class Enemy : RigidBody2D{
 	private Vector2[] dir = new Vector2[8]{Vector2.Right , new Vector2(1,-1), Vector2.Up, new Vector2(-1,-1), Vector2.Left, new Vector2(-1,1), Vector2.Down, -new Vector2(1,1)};
 	private RayCast2D[] collRay = new RayCast2D[8];
 	private float[] interest_dir = new float[8];
+
+	private PackedScene essencePrefab = GD.Load<PackedScene>("res://Prefab/Essence.tscn");
 	private float[] deinterest_dir = new float[8];
 
 	public override void _Ready(){
@@ -69,9 +71,19 @@ public class Enemy : RigidBody2D{
 	public void Hit(int i, Vector2 vel){
 		health -=i;
 		if(health<=0){
-			QueueFree();
+			Die();
 			return;
 		}
 		ApplyImpulse(center, vel * vel * vel);
+	}
+
+	private void Die(){
+		var amonutToDrop = (int)GD.RandRange(1,5);
+		for (int i = 0; i < amonutToDrop; i++){
+			var essance = (Node2D)essencePrefab.Instance();
+			essance.GlobalPosition = GlobalPosition + new Vector2((float)GD.RandRange(-10,10),(float)GD.RandRange(-10,10));
+			GetTree().CurrentScene.AddChild(essance);
+		}
+		QueueFree();
 	}
 }

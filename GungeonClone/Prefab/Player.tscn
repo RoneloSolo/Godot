@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprite/Player/character.png" type="Texture" id=1]
 [ext_resource path="res://Scr/Player/Player.cs" type="Script" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.01782
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -27,3 +30,13 @@ position = Vector2( 0, -4 )
 
 [node name="Rifle" parent="Hand" instance=ExtResource( 3 )]
 position = Vector2( 5, -1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -7 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="Area2D" to="." method="OnAreaEnter"]

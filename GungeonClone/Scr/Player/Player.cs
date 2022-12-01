@@ -11,7 +11,7 @@ public class Player : RigidBody2D{
 	private float frictionScale = 4; 
 	private float gettingSpeedScale = .8f; 
 	private Vector2 topVelocity;
-
+	private int essenceAmount;
 	public override void _Ready(){
 		hand = GetNode<Position2D>("Hand");
 		playerSpirte = GetNode<Sprite>("Sprite");
@@ -37,7 +37,6 @@ public class Player : RigidBody2D{
 		AppliedForce = desVelocity;
 	}
 
-
 	public override void _IntegrateForces(Physics2DDirectBodyState state){
 		Movement();
 	}
@@ -50,5 +49,14 @@ public class Player : RigidBody2D{
 		else if (Mathf.Rad2Deg(hand.Rotation) < -180) hand.Rotation = Mathf.Deg2Rad(181);
 		if (Mathf.Rad2Deg(hand.Rotation) > -90 && Mathf.Rad2Deg(hand.Rotation) < 90) hand.Scale = new Vector2(1, 1);
 		else hand.Scale = new Vector2(1, -1);
+	}
+
+	private void CollectEssence(){
+		essenceAmount += (int)GD.RandRange(1,5);
+	}
+
+	private void OnAreaEnter(Node body){
+		CollectEssence();
+		body.QueueFree();
 	}
 }
